@@ -18,7 +18,7 @@
  */
 
 (function(plugin) {
-    var BASE_URL = 'http://filmezz.eu/';
+    var BASE_URL = 'http://www.cinefilmesonline.net/';
     var logo = plugin.path + "logo.png";
 
     var blue = "6699CC", orange = "FFA500";
@@ -46,7 +46,7 @@
         return s.replace(re, "").replace(/(^\s*)|(\s*$)/gi, "").replace(/(\r\n|\n|\r)/gm, "").replace(/[ ]{2,}/gi, " ").replace(/\t/g, ' ');
     }
 
-    var service = plugin.createService("filmezz.eu", plugin.getDescriptor().id + ":start", "video", true, logo);
+    var service = plugin.createService("cinefilmesonline.net/", plugin.getDescriptor().id + ":start", "video", true, logo);
 
     // Search IMDB ID by title
     function getIMDBid(title) {
@@ -165,7 +165,7 @@
     plugin.addURI(plugin.getDescriptor().id + ":play:(.*):(.*):(.*):(.*)", function(page, hoster, url, title, info) {
         var canonicalUrl = plugin.getDescriptor().id + ":play:" + hoster + ':' + url + ':' + title;
         page.loading = true;
-        var url = checkLink(unescape(url)).match(/(http:\/\/filmezz.*)/)[1];
+        var url = checkLink(unescape(url)).match(/(http:\/\/cinefilmesonline.*)/)[1];
         var doc = showtime.httpReq(checkLink(unescape(url)), {
             noFollow: true
         });
